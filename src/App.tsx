@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import NotesPage from "./pages/NotesPage"
 import AddPage from "./pages/AddPage"
 
@@ -11,7 +11,14 @@ type Note = {
 
 function App() {
   const [page, setPage] = useState("home")
-  const [notes, setNotes] = useState<Note[]>([])
+  const [notes, setNotes] = useState<Note[]>(() => {
+    const saved = localStorage.getItem("notes");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   const addNote = (title: string, content: string) => {
     const newNote: Note = {
@@ -24,8 +31,10 @@ function App() {
   }
 
   const deleteNote = (id: number) => {
-    setNotes(notes.filter((note) => note.id !== id))
-  }
+    setNotes((prev) => prev.filter((note) => note.id !== id));
+  };
+
+
 
   return (
     <>
