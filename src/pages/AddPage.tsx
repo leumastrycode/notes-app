@@ -20,7 +20,7 @@ function AddPage({
     }
 
     return (
-        <div className="min-h-screen flex justify-center bg-zinc-900 p-6">
+        <div className="min-h-screen flex justify-center bg-zinc-950 p-6">
             <div className="w-full max-w-xl flex flex-col items-start gap-4">
 
                 <h1 className="w-full text-center text-4xl font-bold text-stone-400 pt-5">
@@ -34,14 +34,14 @@ function AddPage({
                     </p>
 
                     <input
-                        className="w-full rounded-[10px] py-2 px-3 bg-gray-100 placeholder:text-[12px]"
+                        className="w-full rounded-[10px] py-2 px-3 bg-zinc-900 text-gray-400 placeholder:text-[12px]"
                         placeholder="Input your title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
 
                     <textarea
-                        className="w-full rounded-[10px] px-3 py-3 bg-gray-100 placeholder:text-[12px] resize-none overflow-hidden"
+                        className="w-full rounded-[10px] px-3 py-3 bg-zinc-900 text-gray-400 placeholder:text-[12px] resize-none overflow-hidden"
                         placeholder="Write your note..."
                         onInput={(e) => {
                             const el = e.currentTarget;
@@ -55,18 +55,18 @@ function AddPage({
                     <div className="w-full flex flex-row gap-5">
                         <button
                             onClick={handleSave}
-                            className="w-1/4 bg-stone-500 text-white py-2 rounded-lg"
+                            className="w-1/4 bg-stone-700 text-gray-200 py-2 rounded-lg"
                         >
                             Save
                         </button>
 
                         <button
                             onClick={goBack}
-                            className="text-white w-1/4 bg-stone-500 text-white py-2 rounded-lg">
+                            className="text-white w-1/4 bg-stone-700 text-gray-200 py-2 rounded-lg"
+                        >
                             Cancel
                         </button>
                     </div>
-
 
                 </div>
 
