@@ -10,19 +10,35 @@ function NotesPage({
     deleteNote: (id: number) => void
 }) {
     return (
-        <div className="min-h-screen flex justify-center bg-zinc-900 p-6">
+        <div className="min-h-screen flex justify-center bg-zinc-950 p-6">
             <div className="w-full max-w-xl">
-                <h1 className="text-center text-4xl font-bold text-stone-400 pt-5">
-                    Notes App
-                </h1>
 
-                <button onClick={goToAdd}>Add Note</button>
+                <div className="w-full flex flex-col justify-center align-center">
+                    <h1 className="text-center text-4xl font-bold text-stone-400 pt-5">
+                        Notes App
+                    </h1>
 
-                <div className="space-y-3">
+                    <p className="text-center mt-3 text-gray-400 italic text-[14px]">
+                        Your website Note
+                    </p>
+
+                    <button className="w-1/3 mx-auto my-10 mb-5 bg-stone-500 text-white py-2 rounded-lg"
+                        onClick={goToAdd}>
+                        Add Note
+                    </button>
+                </div>
+
+
+
+                <div className="mt-10 space-y-5 p-4 border border-stone-800 rounded-xl">
                     {notes.map((note) => (
-                        <div key={note.id} className="bg-white p-4 rounded-xl">
-                            <h3 className="font-semibold">{note.title}</h3>
-                            <p className="text-gray-600">{note.content}</p>
+                        <div key={note.id} className="w-full min-w-0 flex flex-col justify-start items-end bg-zinc-900 p-4 rounded-[6px]">
+
+                            <div className="w-full flex flex-col justify-center items-start">
+                                <h3 className="py-2 text-white text-[17px] font-semibold">{note.title}</h3>
+                                <p className="whitespace-pre-wrap break-words [overflow-wrap:anywhere] text-gray-400 text-[14px]">{note.content}</p>
+                            </div>
+
                             <button
                                 onClick={() => deleteNote(note.id)}
                                 className="text-red-500 text-sm mt-2"
