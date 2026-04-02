@@ -12,7 +12,10 @@ function AddPage({
     const [content, setContent] = useState("")
 
     const handleSave = () => {
-        addNote(title, content)
+        const finalTitle = title.trim() || "Untitled";
+        const finalContent = content.trim() || "No content";
+
+        addNote(finalTitle, finalContent)
         goBack()
     }
 
@@ -58,7 +61,7 @@ function AddPage({
                         </button>
 
                         <button
-                        onClick={goBack}
+                            onClick={goBack}
                             className="text-white w-1/4 bg-stone-500 text-white py-2 rounded-lg">
                             Cancel
                         </button>
